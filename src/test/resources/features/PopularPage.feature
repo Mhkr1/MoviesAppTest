@@ -1,7 +1,8 @@
 Feature: Popular Page
   As a user of the movies website
-  I am able to log in to my account
-  So that i can access personalised feature and watch movies
+  I want to navigate to the Popular Page
+  view the listed movies, and explore details of a specific movie.
+
 
   Scenario: Test whether the popular page movies are displayed or not
     Given I am on the home page

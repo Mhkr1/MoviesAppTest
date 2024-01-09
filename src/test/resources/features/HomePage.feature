@@ -1,7 +1,8 @@
 Feature: Home Page
-  As a user of the movies website
-  I am able to log in to my account
-  So that i can access personalised feature and watch movies
+  As a user of the application,
+  I want to seamlessly navigate the Home Page,
+  So that I can discover trending content, watch movies, and access the contact information.
+
 
   Scenario: Test the heading texts of each section
     Given I am on the home page

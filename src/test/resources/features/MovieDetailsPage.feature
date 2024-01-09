@@ -1,7 +1,7 @@
 Feature: Movie Details Page
   As a user of the movies website
-  I am able to log in to my account
-  So that i can access personalised feature and watch movies
+  I want to explore and interact with detailed information
+  about movies from different categories.
 
   Scenario: In the Popular Page click on any Movie and test all the UI elements present in it
     Given I am on the popular page of movie details page

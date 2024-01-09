@@ -1,4 +1,7 @@
 Feature: Account Page
+  As a user of the application
+  I want to interact with the Account Page to review
+  and update my information and log out securely.
 
   Scenario: Test all the UI elements present on the account page
     Given I am on the home page

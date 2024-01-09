@@ -1,7 +1,8 @@
 Feature: Test the header section elements and functionalities on Home Page
-  As a user of the movies website
-  I am able to log in to my account
-  So that i can access personalised feature and watch movies
+  As a user exploring the application
+  I want to ensure that the header section is functional
+  and provides easy navigation options.
+
 
   Scenario: Test whether the UI elements of header section displayed or not
     Given I am on the home page

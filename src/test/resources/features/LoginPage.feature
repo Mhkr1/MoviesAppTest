@@ -1,7 +1,7 @@
 Feature: Login Functionality
-  As a user of the movies page
-  I am able to log in to my account
-  So that i can access personalised feature and watch movies
+  As a user of the application
+  I want a seamless and secure login experience
+  So that I can access personalized features and services
 
   Scenario: Login Page UI elements
 

@@ -1,7 +1,7 @@
 Feature: Search Page
   As a user of the movies website
-  I am able to log in to my account
-  So that i can access personalised feature and watch movies
+  I want to utilize the search functionality
+  to find and explore movies efficiently.
 
   Scenario: Test the search functionality with empty input
     Given I am on the home page
