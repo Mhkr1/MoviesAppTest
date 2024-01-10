@@ -68,7 +68,6 @@ public class LoginPageTest {
     @When("The website is opened perfectly")
     public void websiteOpenPerfectly(){
         expected="https://qamoviesapp.ccbp.tech/login";
-        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
         wait.until(ExpectedConditions.urlToBe(expected));
     }
 
