@@ -19,32 +19,11 @@ import java.time.Duration;
 
 public class SearchPageTest {
 
-    WebDriver driver;
-    WebDriverWait wait;
-    LoginPage loginPage;
-    HeaderSection headerSection;
-    SearchPage searchPage;
-    int movieCount=0;
+    WebDriver driver=Hooks.getDriver();
+    HeaderSection headerSection=new HeaderSection(driver);
+    SearchPage searchPage=new SearchPage(driver);
 
-    @Before
-    public void setup(){
-        System.setProperty("webdriver.edge.driver","C:\\Users\\mhkum\\Downloads\\edgedriver_win64\\msedgedriver.exe");
-        driver=new EdgeDriver();
-        loginPage=new LoginPage(driver);
-        searchPage=new SearchPage(driver);
-        headerSection=new HeaderSection(driver);
-        wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        driver.get("https://qamoviesapp.ccbp.tech/login");
-        loginPage.loginToApplication("rahul","rahul@2021");
-        String expectedUrl="https://qamoviesapp.ccbp.tech/";
-        wait.until(ExpectedConditions.urlToBe(expectedUrl));
-    }
-
-    @After
-    public void closeUp(){
-        driver.quit();
-    }
 
     @When("No input was entered")
     public void emptyInput(){
@@ -59,6 +38,7 @@ public class SearchPageTest {
 
     @Then("I should get the count of movies displayed")
     public void moviesVisibledOnSearchPage(){
+
         Assert.assertTrue(searchPage.moviesListDisplayed().size()>0);
     }
 

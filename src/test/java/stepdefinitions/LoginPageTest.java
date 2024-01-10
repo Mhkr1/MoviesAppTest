@@ -18,27 +18,11 @@ import pages.LoginPage;
 import java.time.Duration;
 
 public class LoginPageTest {
-    public WebDriver driver;
-    String expected="";
-    String actual="";
-    LoginPage loginPage;
-    HomePage homePage;
-    WebDriverWait wait;
-
-
-    @Before
-    public void setup(){
-        System.setProperty("webdriver.edge.driver","C:\\Users\\mhkum\\Downloads\\edgedriver_win64\\msedgedriver.exe");
-        driver=new EdgeDriver();
-        loginPage=new LoginPage(driver);
-        homePage=new HomePage(driver);
-        wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-    }
-
-    @After
-    public void closeUp(){
-        driver.quit();
-    }
+    WebDriver driver = Hooks.getDriver();
+    LoginPage loginPage=new LoginPage(driver);
+    WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+    String expected;
+    String actual;
 
     @Given("I am on the login page")
     public void iAmOnTheLoginPage(){
@@ -62,7 +46,10 @@ public class LoginPageTest {
 
     @Then("I should be redirected to the home page")
     public void navigatingToHomePage(){
-        Assert.assertTrue(homePage.firstMovieHeading().isDisplayed(),"Not on Home Page");
+        expected="https://qamoviesapp.ccbp.tech/";
+        wait.until(ExpectedConditions.urlToBe(expected));
+        actual=driver.getCurrentUrl();
+        Assert.assertEquals(actual,expected,"Login failed");
     }
 
     @When("The website is opened perfectly")

@@ -20,41 +20,37 @@ import java.time.Duration;
 
 public class AccountPageTest {
 
-    WebDriver driver;
-    WebDriverWait wait;
-    LoginPage loginPage;
+    WebDriver driver=Hooks.getDriver();
+    WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+    LoginPage loginPage=new LoginPage(driver);
 
-    HeaderSection headerSection;
-    AccountPage accountPage;
+    AccountPage accountPage=new AccountPage(driver);
     String expectedUrl;
     String actualUrl;
 
-    @Before
-    public void setup(){
-        System.setProperty("webdriver.edge.driver","C:\\Users\\mhkum\\Downloads\\edgedriver_win64\\msedgedriver.exe");
-        driver=new EdgeDriver();
-        loginPage=new LoginPage(driver);
-        headerSection=new HeaderSection(driver);
-        accountPage=new AccountPage(driver);
+    @When("I am on account page")
+    public void iAmOnAccountPage(){
+        System.out.println("I am on Account Page");
+    }
 
-        wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-        driver.get("https://qamoviesapp.ccbp.tech/login");
-        loginPage.loginToApplication("rahul","rahul@2021");
-        String expectedUrl="https://qamoviesapp.ccbp.tech/";
+
+    @When("I click on logout button on account page")
+    public void clickOnlogoutOnAccountPage(){
+        accountPage.accountLogoutButtonEl().click();
+    }
+
+
+
+    @Then("I should be redirected to the login page")
+    public void redirectedToLoginPageFromAccountPage(){
+        expectedUrl="https://qamoviesapp.ccbp.tech/login";
         wait.until(ExpectedConditions.urlToBe(expectedUrl));
+        actualUrl=driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl,expectedUrl,"Login URL mimatch");
+        Assert.assertTrue(loginPage.getWebsiteHead().isDisplayed());
     }
 
-    @After
-    public void closeUp(){
-        driver.quit();
-    }
 
-    @When("I am on account page for account page section")
-    public void iAmOnAccountPageForAccountPageSection(){
-        headerSection.getAccountLink().click();
-        expectedUrl="https://qamoviesapp.ccbp.tech/account";
-        wait.until(ExpectedConditions.urlToBe(expectedUrl));
-    }
 
     @Then("account heading should be visible on account page")
     public void accountHeadingDisplayed(){
@@ -95,20 +91,4 @@ public class AccountPageTest {
     public void logoutButtonOnAccountPage(){
         Assert.assertEquals(accountPage.accountLogoutButtonEl().getText(),"Logout","logout mismatch");
     }
-
-
-    @And("I click on logout button on account page")
-    public void clickOnlogoutOnAccountPage(){
-        accountPage.accountLogoutButtonEl().click();
-    }
-
-    @Then("I should be redirected to the login page")
-    public void redirectedToLoginPageFromAccountPage(){
-        expectedUrl="https://qamoviesapp.ccbp.tech/login";
-        wait.until(ExpectedConditions.urlToBe(expectedUrl));
-        actualUrl=driver.getCurrentUrl();
-        Assert.assertEquals(actualUrl,expectedUrl,"Login URL mimatch");
-        Assert.assertEquals(loginPage.getWebsiteHead().getText(),"Login","login heading mismatch");
-    }
-
 }

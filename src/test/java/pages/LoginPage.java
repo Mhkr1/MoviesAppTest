@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -46,7 +47,7 @@ public class LoginPage {
     public LoginPage(WebDriver driver){
         this.driver=driver;
         PageFactory.initElements(driver, this);
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     public WebElement linkPopular() {
@@ -59,26 +60,32 @@ public class LoginPage {
     }
 
     public WebElement getWebsiteLogo(){
+        waitForVisibility(websiteLogo);
         return websiteLogo;
     }
 
     public WebElement getWebsiteHead(){
+        waitForVisibility(websiteHead);
         return websiteHead;
     }
 
     public WebElement loginButtonElement(){
+        waitForVisibility(loginButtonEl);
         return loginButtonEl;
     }
 
     public void enterUserField(String username){
+        waitForVisibility(userInputField);
         userInputField.sendKeys(username);
     }
 
     public void enterPasswordField(String password){
+        waitForVisibility(passwordInputField);
         passwordInputField.sendKeys(password);
     }
 
     public void clickLoginButton(){
+        waitForVisibility(loginButtonEl);
         loginButtonEl.click();
     }
 

@@ -4,9 +4,15 @@ Feature: Movie Details Page
   about movies from different categories.
 
   Scenario: In the Popular Page click on any Movie and test all the UI elements present in it
-    Given I am on the popular page of movie details page
-    When I click on one movie in popular page of movie details page
-    Then I should be navigate to that movie page of movie details page
+    Given I am on the login page
+    And I enter valid username as 'rahul'
+    And I enter valid password as 'rahul@2021'
+    And I click the login button
+    And I should be redirected to the home page
+    And I click popular route option on header section
+    And the popular movies should be visible on popular page
+    When I click on a movie in popular page
+    Then I should be navigate to that movie details page
     And the movie title should be visible on movie details page
     And the sensor rating should be visible on movie details page
     And the release year should be visible on movie details page
@@ -22,7 +28,11 @@ Feature: Movie Details Page
 
 
   Scenario: In the Home Page click on any Trending Movie and test all the UI elements present in it
-    Given I am on the home page
+    Given I am on the login page
+    And I enter valid username as 'rahul'
+    And I enter valid password as 'rahul@2021'
+    And I click the login button
+    And I should be redirected to the home page
     When I click on one trending movie for movies details page
     Then the movie watch time should be visible on movie details page
     And the movie title should be visible on movie details page
@@ -39,7 +49,11 @@ Feature: Movie Details Page
     And the play button should be visible on movie details page
 
   Scenario: In the Home Page click on any Originals Movie and test all the UI elements present in it
-    Given I am on the home page
+    Given I am on the login page
+    And I enter valid username as 'rahul'
+    And I enter valid password as 'rahul@2021'
+    And I click the login button
+    And I should be redirected to the home page
     When I click on one originals movie for movies details page
     Then the movie watch time should be visible on movie details page
     And the movie title should be visible on movie details page

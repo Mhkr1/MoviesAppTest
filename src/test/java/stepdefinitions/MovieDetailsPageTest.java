@@ -18,56 +18,21 @@ import java.time.Duration;
 
 public class MovieDetailsPageTest {
 
-    WebDriver driver;
-    LoginPage loginPage;
-    HomePage homePage;
-    MovieDetailsPage movieDetailsPage;
-    HeaderSection headerSection;
-    PopularPage popularPage;
-    WebDriverWait wait;
-    String expected="";
-    String actual="";
+    WebDriver driver=Hooks.getDriver();
 
+    HomePage homePage=new HomePage(driver);
+    MovieDetailsPage movieDetailsPage=new MovieDetailsPage(driver);
 
-    @Before
-    public void setup(){
-        System.setProperty("webdriver.edge.driver","C:\\Users\\mhkum\\Downloads\\edgedriver_win64\\msedgedriver.exe");
-        driver=new EdgeDriver();
-        loginPage=new LoginPage(driver);
-        homePage=new HomePage(driver);
-        movieDetailsPage=new MovieDetailsPage(driver);
-        headerSection=new HeaderSection(driver);
-        popularPage=new PopularPage(driver);
-        wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        driver.get("https://qamoviesapp.ccbp.tech/login");
-        loginPage.loginToApplication("rahul","rahul@2021");
-        expected="https://qamoviesapp.ccbp.tech/";
-        wait.until(ExpectedConditions.urlToBe(expected));
+    @When("I click on one trending movie for movies details page")
+    public void clickFirstTrendingMovieForMovieDetalsPage(){
+        homePage.trendingMoviesVisibility(0).click();
     }
 
-    @After
-    public void closeUp(){
-        driver.quit();
+    @When("I click on one originals movie for movies details page")
+    public void clickFirstOriginalsMovieForMovieDetailsPage(){
+        homePage.originalsMovieVisibility(0).click();
     }
 
-
-    @Given("I am on the popular page of movie details page")
-    public void iAmOnPopularPageOfMovieDetailsPage(){
-        headerSection.popularLinkText().click();
-        expected="https://qamoviesapp.ccbp.tech/popular";
-        wait.until(ExpectedConditions.urlToBe(expected));
-    }
-
-    @When("I click on one movie in popular page of movie details page")
-    public void iClickOnMovieOfMovieDetailsPage(){
-        popularPage.moviesOnPopularPage().get(0).click();
-    }
-
-    @Then("I should be navigate to that movie page of movie details page")
-    public void navigateToMoviePageOnMovieDetailsPage(){
-        Assert.assertTrue(movieDetailsPage.movieTitleEl().isDisplayed());
-    }
 
     @And("the movie title should be visible on movie details page")
     public void movieTitleDisplayed(){
@@ -127,22 +92,6 @@ public class MovieDetailsPageTest {
     @And("the play button should be visible on movie details page")
     public void playButtonDisplayed(){
         Assert.assertTrue(movieDetailsPage.getplayButton().isDisplayed());
-    }
-
-
-    @When("I click one movie of popular page")
-    public void clickOnOneMovieInPopularSection(){
-        popularPage.moviesOnPopularPage().get(0).click();
-    }
-
-    @When("I click on one trending movie for movies details page")
-    public void clickFirstTrendingMovieForMovieDetalsPage(){
-        homePage.trendingMoviesVisibility(0).click();
-    }
-
-    @When("I click on one originals movie for movies details page")
-    public void clickFirstOriginalsMovieForMovieDetailsPage(){
-        homePage.originalsMovieVisibility(0).click();
     }
 
 
