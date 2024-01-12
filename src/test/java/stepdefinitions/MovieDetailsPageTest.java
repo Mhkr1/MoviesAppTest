@@ -22,15 +22,16 @@ public class MovieDetailsPageTest {
 
     HomePage homePage=new HomePage(driver);
     MovieDetailsPage movieDetailsPage=new MovieDetailsPage(driver);
+    WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 
     @When("I click on one trending movie for movies details page")
-    public void clickFirstTrendingMovieForMovieDetalsPage(){
-        homePage.trendingMoviesVisibility(0).click();
+    public void clickFirstTrendingMovieForMovieDetailsPage(){
+        wait.until(ExpectedConditions.visibilityOf(homePage.trendingMoviesVisibility(0))).click();
     }
 
     @When("I click on one originals movie for movies details page")
     public void clickFirstOriginalsMovieForMovieDetailsPage(){
-        homePage.originalsMovieVisibility(0).click();
+        wait.until(ExpectedConditions.visibilityOf(homePage.originalsMovieVisibility(0))).click();
     }
 
 

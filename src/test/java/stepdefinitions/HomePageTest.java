@@ -1,36 +1,19 @@
 package stepdefinitions;
 
 
-
 import io.cucumber.java.After;
-
 import io.cucumber.java.Before;
-
 import io.cucumber.java.en.And;
-
 import io.cucumber.java.en.Given;
-
 import io.cucumber.java.en.Then;
-
 import io.cucumber.java.en.When;
-
 import io.cucumber.java.en_scouse.An;
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.edge.EdgeDriver;
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import org.testng.Assert;
-
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-
 import pages.HomePage;
-
-import pages.LoginPage;
-
 
 
 import java.time.Duration;

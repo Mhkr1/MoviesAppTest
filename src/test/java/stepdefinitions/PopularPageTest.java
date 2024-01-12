@@ -22,7 +22,7 @@ public class PopularPageTest {
 
     WebDriver driver=Hooks.getDriver();
     PopularPage popularPage=new PopularPage(driver);
-    HeaderSection headerSection;
+    HeaderSection headerSection=new HeaderSection(driver);
 
 
     @Then("the popular movies should be visible on popular page")

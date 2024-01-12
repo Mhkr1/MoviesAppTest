@@ -34,7 +34,7 @@ public class HomePage {
     @CacheLookup
     WebElement firstHeadingElement;
 
-    @FindBy(xpath = "//h1[text()='Trending Now']/following-sibling::div//a")
+    @FindBy(how = How.XPATH, using = "//h1[text()='Trending Now']/following-sibling::div//a")
     List<WebElement> trendingMovies;
 
     @FindBy(how= How.XPATH, using = "//h1[text()='Originals']")

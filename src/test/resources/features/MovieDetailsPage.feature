@@ -9,6 +9,13 @@ Feature: Movie Details Page
     And I enter valid password as 'rahul@2021'
     And I click the login button
     And I should be redirected to the home page
+    And I am on home page first heading should be 'Trending Now'
+    And the second heading should be 'Originals'
+    And play button should be visible on the home page
+    And Trending now movies should be visible
+    And Originals movies should be visible
+    And contact us icons should be visible
+    And contact us Section should be visible
     And I click popular route option on header section
     And the popular movies should be visible on popular page
     When I click on a movie in popular page
@@ -33,6 +40,13 @@ Feature: Movie Details Page
     And I enter valid password as 'rahul@2021'
     And I click the login button
     And I should be redirected to the home page
+    And I am on home page first heading should be 'Trending Now'
+    And the second heading should be 'Originals'
+    And play button should be visible on the home page
+    And Trending now movies should be visible
+    And Originals movies should be visible
+    And contact us icons should be visible
+    And contact us Section should be visible
     When I click on one trending movie for movies details page
     Then the movie watch time should be visible on movie details page
     And the movie title should be visible on movie details page
@@ -54,6 +68,13 @@ Feature: Movie Details Page
     And I enter valid password as 'rahul@2021'
     And I click the login button
     And I should be redirected to the home page
+    And I am on home page first heading should be 'Trending Now'
+    And the second heading should be 'Originals'
+    And play button should be visible on the home page
+    And Trending now movies should be visible
+    And Originals movies should be visible
+    And contact us icons should be visible
+    And contact us Section should be visible
     When I click on one originals movie for movies details page
     Then the movie watch time should be visible on movie details page
     And the movie title should be visible on movie details page
