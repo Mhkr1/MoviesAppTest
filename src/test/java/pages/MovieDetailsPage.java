@@ -86,7 +86,7 @@ public class MovieDetailsPage {
         return watchTime;
     }
 
-    public WebElement sensroRatingEl(){
+    public WebElement sensorRatingEl(){
         waitForVisibility(sensorRating);
         return sensorRating;
     }

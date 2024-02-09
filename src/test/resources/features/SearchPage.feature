@@ -32,3 +32,15 @@ Feature: Search Page
     When I enter valid movie name 'Titanic'
     And I click search button
     Then I should get the count of movies displayed
+
+
+  Scenario: Test the search functionality with valid input and navigate to titanic movie details page
+    Given I am on the login page
+    And I enter valid username as 'rahul'
+    And I enter valid password as 'rahul@2021'
+    And I click the login button
+    And I should be redirected to the home page
+    When I enter valid movie name 'Titanic'
+    And I click search button
+    And I click on the titanic movie
+    Then I should be navigated to the titanic movie details page

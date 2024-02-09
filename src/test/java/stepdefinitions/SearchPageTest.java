@@ -20,6 +20,8 @@ import java.time.Duration;
 public class SearchPageTest {
 
     WebDriver driver=Hooks.getDriver();
+    String expectedUrl;
+    String actualUrl;
     HeaderSection headerSection=new HeaderSection(driver);
     SearchPage searchPage=new SearchPage(driver);
 
@@ -32,13 +34,11 @@ public class SearchPageTest {
 
     @And("I click search button")
     public void clickSearchEl() {
-
         searchPage.clickSearchButton().click();
     }
 
     @Then("I should get the count of movies displayed")
     public void moviesVisibledOnSearchPage(){
-
         Assert.assertTrue(searchPage.moviesListDisplayed().size()>0);
     }
 
@@ -54,10 +54,24 @@ public class SearchPageTest {
         searchPage.enterMovieName().sendKeys("Titanic");
     }
 
+    @And("I click on the titanic movie")
+    public void clickTitanicMovie(){
+        searchPage.moviesListDisplayed().get(0).click();
+    }
+
+    @Then("I should be navigated to the titanic movie details page")
+    public void navigateToMovieDetailsPageOfSearchPage(){
+        expectedUrl="https://qamoviesapp.ccbp.tech/movies/33119fe5-3966-4bba-b98c-10b241ffc9f8";
+        actualUrl=driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl,expectedUrl,"Url Mismatch");
+    }
+
     @Then("An error message 'Your search for salaar did not find any matches.' should be visible")
     public void invalidMovieMessage(){
         Assert.assertEquals(searchPage.invalidInputMessageOnSearchPage().getText(),"Your search for salaar did not find any matches.","Movie Invalid");
     }
+
+
 
 
 }

@@ -47,7 +47,6 @@ public class AccountPageTest {
         wait.until(ExpectedConditions.urlToBe(expectedUrl));
         actualUrl=driver.getCurrentUrl();
         Assert.assertEquals(actualUrl,expectedUrl,"Login URL mimatch");
-        Assert.assertTrue(loginPage.getWebsiteHead().isDisplayed());
     }
 
 

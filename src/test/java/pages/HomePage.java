@@ -48,11 +48,20 @@ public class HomePage {
     WebElement playButtonElement;
 
 
-    @FindBy(xpath = "//div[@class='footer-icons-container']/child::*")
-    List<WebElement> contactIcons;
-
     @FindBy(className = "contact-us-paragraph")
     WebElement contactElement;
+
+    @FindBy(css = "svg[class$='google-icon']")
+    WebElement contactUsGoogleIcon;
+
+    @FindBy(css = "svg[class$='twitter-icon']")
+    WebElement contactUsTwitterIcon;
+
+    @FindBy(css = "svg[class$='instagram-icon']")
+    WebElement contactUsInstagramIcon;
+
+    @FindBy(css = "svg[class$='youtube-icon']")
+    WebElement contactUsYoutubeIcon;
 
     WebDriver driver;
     WebDriverWait wait;
@@ -66,6 +75,14 @@ public class HomePage {
     public WebElement firstMovieHeading() {
         waitForVisibility(firstHeadingElement);
         return firstHeadingElement;
+    }
+
+    public int getTrendingMovieCount(){
+        return trendingMovies.size();
+    }
+
+    public int getOriginalsMovieCount(){
+        return originalsMovies.size();
     }
 
     public WebElement trendingMoviesVisibility(int index){
@@ -88,13 +105,31 @@ public class HomePage {
         return playButtonElement;
     }
 
-    public List<WebElement> contactIconsVisibility(){
-        return contactIcons;
+
+    public WebElement contactUsGoogleIconVisibile(){
+        waitForVisibility(contactUsGoogleIcon);
+        return contactUsGoogleIcon;
     }
 
-    public WebElement contactButtonEle() {
+    public WebElement contactUsTwitterIconVisibility(){
+        waitForVisibility(contactUsTwitterIcon);
+        return contactUsTwitterIcon;
+    }
+
+    public WebElement contactUsInstagramIcon(){
+        waitForVisibility(contactUsInstagramIcon);
+        return contactUsInstagramIcon;
+    }
+
+    public WebElement contactUsYoutubeIcon(){
+        waitForVisibility(contactUsYoutubeIcon);
+        return contactUsYoutubeIcon;
+    }
+
+
+    public String contactButtonEle() {
         waitForVisibility(contactElement);
-        return contactElement;
+        return contactElement.getText();
     }
 
     private void waitForVisibility(WebElement element) {

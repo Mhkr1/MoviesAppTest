@@ -14,7 +14,10 @@ Feature: Movie Details Page
     And play button should be visible on the home page
     And Trending now movies should be visible
     And Originals movies should be visible
-    And contact us icons should be visible
+    And contact us google icon should be visible
+    And contact us twitter icon should be visible
+    And contact us instagram icon should be visible
+    And contact us youtube icon should be visible
     And contact us Section should be visible
     And I click popular route option on header section
     And the popular movies should be visible on popular page
@@ -45,9 +48,13 @@ Feature: Movie Details Page
     And play button should be visible on the home page
     And Trending now movies should be visible
     And Originals movies should be visible
-    And contact us icons should be visible
+    And contact us google icon should be visible
+    And contact us twitter icon should be visible
+    And contact us instagram icon should be visible
+    And contact us youtube icon should be visible
     And contact us Section should be visible
     When I click on one trending movie for movies details page
+    And I should be redirected to that trending movie details page
     Then the movie watch time should be visible on movie details page
     And the movie title should be visible on movie details page
     And the sensor rating should be visible on movie details page
@@ -73,9 +80,13 @@ Feature: Movie Details Page
     And play button should be visible on the home page
     And Trending now movies should be visible
     And Originals movies should be visible
-    And contact us icons should be visible
+    And contact us google icon should be visible
+    And contact us twitter icon should be visible
+    And contact us instagram icon should be visible
+    And contact us youtube icon should be visible
     And contact us Section should be visible
     When I click on one originals movie for movies details page
+    And I should be redirected to that originals movie details page
     Then the movie watch time should be visible on movie details page
     And the movie title should be visible on movie details page
     And the sensor rating should be visible on movie details page

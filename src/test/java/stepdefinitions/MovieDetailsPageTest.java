@@ -20,6 +20,9 @@ public class MovieDetailsPageTest {
 
     WebDriver driver=Hooks.getDriver();
 
+    String expectedUrl;
+    String actualUrl;
+
     HomePage homePage=new HomePage(driver);
     MovieDetailsPage movieDetailsPage=new MovieDetailsPage(driver);
     WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -34,6 +37,19 @@ public class MovieDetailsPageTest {
         wait.until(ExpectedConditions.visibilityOf(homePage.originalsMovieVisibility(0))).click();
     }
 
+    @And("I should be redirected to that trending movie details page")
+    public void redirectToTrendingMovieDetailsPage(){
+        expectedUrl="https://qamoviesapp.ccbp.tech/movies/92c2cde7-d740-443d-8929-010b46cb0305";
+        actualUrl=driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl,expectedUrl,"Navigation to Trending movies details page failed");
+    }
+
+    @And("I should be redirected to that originals movie details page")
+    public void redirectToOriginalMovieDetailsPage(){
+        expectedUrl="https://qamoviesapp.ccbp.tech/movies/efb33428-5527-44d0-a713-1aeef4d56968";
+        actualUrl=driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl,expectedUrl,"Navigation to Originals movies details page failed");
+    }
 
     @And("the movie title should be visible on movie details page")
     public void movieTitleDisplayed(){
@@ -42,7 +58,7 @@ public class MovieDetailsPageTest {
 
     @And("the sensor rating should be visible on movie details page")
     public void sensorRatingVisibility(){
-        Assert.assertTrue(movieDetailsPage.sensroRatingEl().isDisplayed());
+        Assert.assertTrue(movieDetailsPage.sensorRatingEl().isDisplayed());
     }
 
     @And("the release year should be visible on movie details page")

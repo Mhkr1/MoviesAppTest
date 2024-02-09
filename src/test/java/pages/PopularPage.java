@@ -17,8 +17,6 @@ public class PopularPage {
     @FindBy(xpath = "//li[@class='movie-icon-item']/child::a")
     List<WebElement> movieVisibileOnPopularPage;
 
-    @FindBy(className = "movie-title")
-    WebElement movieTitle;
 
     WebDriver driver;
     WebDriverWait wait;
@@ -32,15 +30,6 @@ public class PopularPage {
     public List<WebElement> moviesOnPopularPage(){
         waitForVisibilityOfElements(movieVisibileOnPopularPage);
         return movieVisibileOnPopularPage;
-    }
-
-    public WebElement movieTitleElement(){
-        waitForVisibility(movieTitle);
-        return movieTitle;
-    }
-
-    private void waitForVisibility(WebElement element) {
-        wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     private void waitForVisibilityOfElements(List<WebElement> element) {

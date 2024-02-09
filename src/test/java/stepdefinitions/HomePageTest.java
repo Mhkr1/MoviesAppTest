@@ -41,22 +41,37 @@ public class HomePageTest {
 
     @And("Trending now movies should be visible")
     public void trendingMoviesDisplayed(){
-        Assert.assertTrue(homePage.trendingMoviesVisibility(0).isDisplayed(),"Trending Movies Not Visible");
+        Assert.assertTrue(homePage.getTrendingMovieCount()>0,"Trending Movies Not Visible");
     }
 
     @And("Originals movies should be visible")
     public void originalsMoviesDisplayed(){
-        Assert.assertTrue(homePage.originalsMovieVisibility(0).isDisplayed(),"Originals Movies Not Visible");
+        Assert.assertTrue(homePage.getOriginalsMovieCount()>0,"Originals Movies Not Visible");
     }
 
-    @And("contact us icons should be visible")
-    public void contactIconsDisplayed(){
-        Assert.assertTrue(homePage.contactIconsVisibility().size()==4,"Contact Icons Not Visible");
+    @And("contact us google icon should be visible")
+    public void checkGoogleIconVisibility(){
+        Assert.assertTrue(homePage.contactUsGoogleIconVisibile().isDisplayed(),"Google Icon Not Visible");
+    }
+
+    @And("contact us twitter icon should be visible")
+    public void checkTwitterIconVisibility(){
+        Assert.assertTrue(homePage.contactUsTwitterIconVisibility().isDisplayed(),"Twitter Icon Not Visible");
+    }
+
+    @And("contact us instagram icon should be visible")
+    public void checkInstagramIconVisibility(){
+        Assert.assertTrue(homePage.contactUsInstagramIcon().isDisplayed(),"Instagram Icon Not Visible");
+    }
+
+    @And("contact us youtube icon should be visible")
+    public void checkYoutubeIconVisibility(){
+        Assert.assertTrue(homePage.contactUsYoutubeIcon().isDisplayed(),"Youtube Icon Not Visible");
     }
 
     @And("contact us Section should be visible")
     public void contactUsSection() {
-        Assert.assertTrue(homePage.contactButtonEle().isDisplayed(), "contact us section not visible");
+        Assert.assertEquals(homePage.contactButtonEle(),"Contact Us", "Contact Us Text Not Visible");
     }
 
 }

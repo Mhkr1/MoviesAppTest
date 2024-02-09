@@ -15,5 +15,8 @@ Feature: Home Page
     And play button should be visible on the home page
     And Trending now movies should be visible
     And Originals movies should be visible
-    And contact us icons should be visible
+    And contact us google icon should be visible
+    And contact us twitter icon should be visible
+    And contact us instagram icon should be visible
+    And contact us youtube icon should be visible
     And contact us Section should be visible
